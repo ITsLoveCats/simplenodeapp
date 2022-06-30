@@ -12,10 +12,13 @@ jobs:
         node: [10, 12, 14]
     steps:
       - uses: actions/checkout@v3
-      - name: Use node.js ${{ matrix.node }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-      - run: npm ci
-      - run: npm run buld --if-present
-        
+      - name: my first step
+        env: 
+          MY_VAR: Hi there! my name is
+          FIRST_NAME: Chad
+          MIDDLE_NAME: Michael
+          LAST_NAME: Crowell
+        run: |
+          echo $MY_VAR
+          echo $FIRST_NAME
+          
